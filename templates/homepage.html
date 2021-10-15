@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<style>
+
+    body{
+        background-image: url('static/background.jpeg');
+    }
+
+
+    .h1{
+        color:rgb(255, 255, 255);
+        font-family:Cambria;
+        font-size: 60px;
+        text-decoration:none;
+        font-weight:bold;
+        }
+
+      .h1:hover{
+          color:beige;
+      }
+
+    *{
+      margin:0;
+      padding:0;
+    }
+
+    .main{
+      margin-top: 40px;
+    }
+
+    .card0{
+      width:25%;
+      background-image: linear-gradient(270deg, #fc7c7c 0%,blue 50% ,#c7eb27 100%);
+      border-radius: 5px;
+      margin:30px;
+      display: inline-block;
+    }
+
+    .card1{
+      width:25%;
+      background-image: linear-gradient(20deg, #d119e2 0%,rgb(58, 247, 83) 50% ,rgb(39, 196, 235) 100%);
+      border-radius: 5px;
+      margin:0px;
+      display: inline-block;
+    }
+
+    .card2{
+      width:25%;
+      background-image: linear-gradient(70deg, #d12020 30%, #f1db15 100%);
+      border-radius: 5px;
+      margin:30px;
+      display: inline-block;
+    }
+
+    .card3{
+      width:25%;
+      background-image: linear-gradient(-100deg, #1eeca8 0%,rgb(83, 83, 172) 50% ,#37eb20 70%, rgb(131, 32, 243) 100%);
+      border-radius: 5px;
+      margin:30px;
+      display: inline-block;
+    }
+
+    .card4{
+      width:25%;
+      background-image: linear-gradient(-140deg, #2c5dff 0%,orange 40%, #6ee42a 100%);
+      border-radius: 5px;
+      margin:30px;
+      display: inline-block;
+    }
+
+    .card5{
+      width:25%;
+      background-image: linear-gradient(-230deg, #173aff 0%,rgb(174, 0, 255) 30% ,#caf703 70%, rgb(248, 119, 34) 100%);
+      border-radius: 5px;
+      margin:30px;
+      display: inline-block;
+    }
+
+    .title{
+      font-family:Arial, Helvetica, sans-serif;
+      text-align: center;
+      color: aliceblue;
+      font-weight: bold;
+    }
+
+    .des{
+      text-align: center;
+      color:aliceblue
+    }
+
+    button{
+      margin-top:0px;
+      margin-bottom: 15px;
+      }
+
+      .h2{
+        color:rgb(0, 0, 0);
+        font-family:Cambria;
+        text-decoration:none;
+        font-size: 50px;
+        font-weight:bold;
+        margin-top: 6px;
+        margin-bottom: 2px;
+        }
+
+        .h2:hover{
+          color:rgb(83, 83, 83);
+      }
+    
+
+        .btn{
+            margin-top: 5px;
+        }
+
+        .l1{
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            font-size:30px;
+        }
+
+        .option{
+            color: #000000;
+        }
+
+        .link1{
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 140px;
+  margin-left: 17px;
+  margin-top: 40px;
+}
+
+</style>
+
+<title>Home</title>
+
+<body>
+    
+    <center>
+        <h1><a class="h1">BOOK RECOMMENDATION SYSTEM</a></h1>
+    </center>
+    
+
+<center>
+    <form action="homepage" method="post">
+        <div>
+            <label for="book" class="l1">Choose Book</label>
+        </div>
+        <div>
+            <select id="book" name="book">
+                {% for i in range(0,book_names|length) %}
+                <option class="black" value={{i}}>{{book_names[i]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="btn">
+        <input type="submit" value="Recommend" class="btn btn-outline-dark btn-lg width=40px mb-3">
+        </div>
+    </form>
+
+</center>
+
+
+{% if recommend==1 %}
+
+<center>
+    <!--cards-->
+    <!--1st-->
+
+    <center>
+        <h2><a class="h2">YOUR CHOICE</a></h2>
+    </center>
+
+
+    <div class="main">
+        <div class="card0">
+            <div class="title">
+                <h5>{{choice[0]}} </h5>
+            </div>
+
+            <div class="des">
+                <h6>Year:- {{choice[2]}}</h6>
+                <h6>Author :- {{choice[1]}}</h6>
+                <h6>Publisher:- {{choice[3]}}</h6>
+            </div>
+            <div class="des">
+                <a href="https://isbnsearch.org/search?s={{choice[5]}}" type="button"
+                    class="btn btn-outline-info btn-lg width=40px mb-3">Show</a>
+            </div>
+        </div>
+    </div>
+
+
+</center>
+
+
+
+
+<center>
+    <!--cards-->
+    <!--1st-->
+
+    <center>
+        <h2><a class="h2">RECOMMENDED BOOKS</a></h2>
+    </center>
+
+
+    <div class="main">
+        <div class="card1">
+            <div class="title">
+                <h5>{{titles[0]}} </h5>
+            </div>
+
+            <div class="des">
+                <h6>Year:- {{year[0]}}</h6>
+                <h6>Author :- {{author[0]}}</h6>
+                <h6>Publisher:- {{publisher[0]}} </h6>
+            </div>
+            <div class="des">
+                <a href="https://isbnsearch.org/search?s={{isbn_no[0]}}" type="button" class="btn btn-outline-info btn-lg width=40px mb-3">Show</a>
+            </div>
+        </div>
+
+        <!--2nd-->
+        <div class="card2">
+            <div class="title">
+                <h5>{{titles[1]}} </h5>
+            </div>
+           
+
+            <div class="des">
+                <h6>Year:- {{year[1]}}</h6>
+                <h6>Author :- {{author[1]}}</h6>
+                <h6>Publisher:- {{publisher[1]}}</h6>
+            </div>
+            <div class="des">
+                <a href="https://isbnsearch.org/search?s={{isbn_no[1]}}" type="button"
+                    class="btn btn-outline-info btn-lg width=40px mb-3">Show</a>
+            </div>
+        </div>
+
+        <!--3rd-->
+        <div class="card3">
+            <div class="title">
+                <h5>{{titles[2]}} </h5>
+            </div>
+            
+
+            <div class="des">
+                <h6>Year:- {{year[2]}}</h6>
+                <h6>Author :- {{author[2]}}</h6>
+                <h6>Publisher:- {{publisher[2]}}</h6>
+            </div>
+            <div class="des">
+                <a href="https://isbnsearch.org/search?s={{isbn_no[2]}}" type="button"
+                    class="btn btn-outline-info btn-lg width=40px mb-3">Show</a>
+            </div>
+        </div>
+
+
+        <!--4th-->
+        <div class="card4">
+            <div class="title">
+                <h5>{{titles[3]}} </h5>
+            </div>
+           
+            <div class="des">
+                <h6>Year:- {{year[3]}}</h6>
+                <h6>Author :- {{author[3]}}</h6>
+                <h6>Publisher:- {{publisher[3]}}</h6>
+            </div>
+            <div class="des">
+                <a href="https://isbnsearch.org/search?s={{isbn_no[3]}}" type="button"
+                    class="btn btn-outline-info btn-lg width=40px mb-3">Show</a>
+            </div>
+        </div>
+
+        <!--5th-->
+        <div class="card5">
+            <div class="title">
+                <h5>{{titles[4]}} </h5>
+            </div>
+
+            <div class="des">
+                <h6>Year:- {{year[4]}}</h6>
+                <h6>Author :- {{author[4]}}</h6>
+                <h6>Publisher:- {{publisher[4]}}</h6>
+            </div>
+            <div class="des">
+                <a href="https://isbnsearch.org/search?s={{isbn_no[4]}}" type="button"
+                    class="btn btn-outline-info btn-lg width=40px mb-3">Show</a>
+            </div>
+        </div>
+    </div>
+
+
+</center>
+{% endif %}  
+
+
+{% if recommend==1%}
+    <div>
+        <h3 class="fw-bold my-5" style="color: white;">
+            <center> Created By Aditya Naranje </center>
+        </h3>
+    </div>
+{% else %}
+    <div>
+        <h3 class="fw-bold my-5" style="color: rgb(3, 3, 3);">
+            <center> Created By Aditya Naranje </center>
+        </h3>
+    </div>
+{% endif %}
+
+
+
+<div class="container my-5">
+    <center>
+        <img src="/static/linkedin.png" alt="LinkedIn Logo" width=30 height="30">
+        <a href="https://www.linkedin.com/in/anaranje/" style="color:#0D77B4FF;" class="link1 ">LinkedIn</a>
+
+        <img src="/static/github.png" alt="Github Logo" width=30 height="30">
+        <a href="https://github.com/adityanaranje" style="color:#000000;" class="link1">Github</a>
+
+        <img src="/static/kaggle.png" alt="Kaggle Logo" width=30 height="30">
+        <a href="https://www.kaggle.com/adityanaranje" style="color:#38C6F5FF;" class="link1">Kaggle</a>
+    </center>
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
