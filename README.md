@@ -18,13 +18,13 @@
 
 
 ## Problem Statement:
-### -> Just like Netflix many other apps are all about connecting people to the movies they love. For that it is must to provide user's what they need. So for that it necessary to know what the user need and that can be possible using recommendation systems. This gives a better user experience.
+### -> The traditional book ordering system is a manual and time-consuming process wherethe customer has to visit a bookstore to search and purchase the books. In this tightschedule, problems arise in finding specific books due to the inadequate distribution of books through the bookshop. The buyer could not get a recommendation for the correctselection of books.
+
 
 ## Aim/Goal :
 ## To create an end to end api for book recommendation system using the collaborative filtering.
 
-## Approach
-### -> The classical machine learning tasks like Data collection, Data Cleaning, Feature Selection, Feature Engineering, Model Deployment. Created the vectores for each movie which will be used for recommendation of movie for corresponding selected movie.
+
 
 ## Dataset
 ### The dataset is taken from kaggle.
